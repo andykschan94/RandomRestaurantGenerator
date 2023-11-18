@@ -19,14 +19,14 @@ It aims to generate a random restaurant's name based on user's input.
 
 # To Start the App and Backend
 
-## Running the App
+## Starting the App
 ```javascript
 cd app
 npm install
 npm start
 ```
 
-## Running the Backend
+## Starting the Backend
 Once the backend started running you can start querying.
 ```javascript
 cd backend
