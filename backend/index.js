@@ -19,7 +19,7 @@ http.createServer(app).listen(port, () => console.log('Application Started at: '
 const router = express.Router();
 
 router.get('/restaurant', RestaurantController.index);
-//router.post('/restaurant/create', RestaurantController.create);
+router.post('/restaurant/create', RestaurantController.addName);
 
 app.use('/', router); //to use the routes
 
