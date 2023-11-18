@@ -17,20 +17,22 @@ It aims to generate a random restaurant's name based on user's input.
 # Important
 - Remember to start up both backend and app
 
+# To Start the App and Backend
+
 ## Running the App
 ```javascript
 cd app
-npm install or npm install --legacy-peer-deps
+npm install
 npm start
 ```
 
 ## Running the Backend
+Once the backend started running you can start querying.
 ```javascript
 cd backend
 npm install
 npm run dev
 ```
-Once the backend started running you can start querying.
 
 # Sample Queries and Responses
 
@@ -52,7 +54,6 @@ Response: {
         "Popeyes",
         "MacDonalds",
         "KFC",
-        "TamJaiSamgor",
         "Fisher's Dinner",
         "Lora's Dinner"
       ]
