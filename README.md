@@ -62,16 +62,12 @@ Response: "success": true
 ## GET /restaurants
 ```javascript
 Response: {
-  "restaurantData": [
-    {
-      "name": [
-        "Popeyes",
-        "MacDonalds",
-        "KFC",
-        "Fisher's Dinner",
-        "Lora's Dinner"
-      ]
-    }
-  ]
+  {
+    "name": [
+      "Andyy's Diner",
+      "KFC",
+      "KFC's Diner"
+    ]
+  }
 }
 ```
