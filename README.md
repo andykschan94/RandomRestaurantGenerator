@@ -64,9 +64,9 @@ Response: "success": true
 Response: {
   {
     "name": [
-      "Andyy's Diner",
-      "KFC",
-      "KFC's Diner"
+      "Fishing Diner",
+      "Pauline's Diner",
+      "KFC"
     ]
   }
 }
