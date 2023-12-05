@@ -30,6 +30,7 @@ npm start
 ## Starting the Backend
 
 ### Setting up .env file
+Create a .env file in backend and input api config
 ```
 REACT_APP_FIREBASE_API_KEY = Input_API_Key
 REACT_APP_FIREBASE_AUTH_DOMAIN = Input_Auth_Domain
