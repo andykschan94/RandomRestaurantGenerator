@@ -1,12 +1,14 @@
 // Config File
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default {
   firebaseConfig: {
-    apiKey: "AIzaSyCq5lfmF448djlnOWPLvJa_K3ydDJ08r54",
-    authDomain: "testassessment-53bb9.firebaseapp.com",
-    projectId: "testassessment-53bb9",
-    storageBucket: "testassessment-53bb9.appspot.com",
-    messagingSenderId: "439178675818",
-    appId: "1:439178675818:web:f7dd99ec4f743951916c13"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
   }
 };
