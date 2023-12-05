@@ -5,16 +5,11 @@ import { validationResult, body } from 'express-validator';
 const index = async (req, res) => {
 
   try {
-        // Validate parameters
-        await validateParams(req);
-
         const restaurantData = await getRestaurantByID("HIhk7UXflI734uo9thXC");
         // Check if the 'name' array exists in the restaurant data
         if (restaurantData && restaurantData.name && Array.isArray(restaurantData.name) && restaurantData.name.length > 0) {
-          // Pick a random restaurant name
-          const randomName = restaurantData.name[Math.floor(Math.random() * restaurantData.name.length)];
 
-          return res.json({ randomName });
+          return res.json({name: restaurantData.name});
       } else {
           throw new Error("Invalid restaurant data structure or empty name array");
       }
@@ -23,10 +18,11 @@ const index = async (req, res) => {
       return res.status(500).json({ error: error.message });
     }
   };
+
+  
   
   const addName = async (req, res) => {
     try {
-
       const { name } = req.body;
       const currentData = await getRestaurantByID("HIhk7UXflI734uo9thXC");
   
@@ -54,22 +50,40 @@ const index = async (req, res) => {
   };
 
   // Middleware for parameter validation
-  const validateParams = [
-    body('name').isString().notEmpty(),
-    // Add more validation rules as needed
+  const validateParams = (req, res, next) => {
+    const validationMiddleware = [
+      body('name').isString().notEmpty(),
+      // Add more validation rules as needed
+    ];
+  
+    // Run validation middleware
+    Promise.all(validationMiddleware.map(validation => new Promise((resolve, reject) => {
+      validation(req, res, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    })))
+      .then(() => {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+          next();
+        } else {
+          res.status(400).json({ errors: errors.array() });
+        }
+      })
+      .catch(error => {
+        console.error('Error in validation middleware:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      });
+  };
+  
 
-    (req, res, next) => {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
-      next();
-    },
-  ];
 
   export default {
     index,
     addName,
     validateParams
   };
-  

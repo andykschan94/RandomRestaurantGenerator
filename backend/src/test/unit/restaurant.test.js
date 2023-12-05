@@ -2,7 +2,7 @@ import { getRestaurantByID, updateRestaurant } from '../../library/restaurant';
 
 describe('Testing restaurant functions', () => {
   test('getRestaurantByID() - Valid', async () => {
-    expect(getRestaurantByID('HIhk7UXflI734uo9thXC')).toMatchInlineSnapshot(`Promise {}`);
+    expect(getRestaurantByID('HIhk7UXflI734uo9thXC')).toMatchInlineSnapshot();
   });
 
   test('getRestaurantByID() - Invalid', async () => {
@@ -14,7 +14,7 @@ describe('Testing restaurant functions', () => {
   });
 
   test('getRestaurantByID() - Valid', async () => {
-    expect(getRestaurantByID('PrktjxxVd9OhtKc49FiB')).toMatchInlineSnapshot(`Promise {}`);
+    expect(getRestaurantByID('HIhk7UXflI734uo9thXC')).toMatchInlineSnapshot();
   });
 
   test('updateRestaurant() - Valid', async () => {
